@@ -1,5 +1,13 @@
 // Arduino Version 1.6.9
 // platformio lib install VirtualWire
+// // The digital IO pin number of the press to talk, enables the transmitter
+// hardware
+// static uint8_t vw_ptt_pin = 10;
+// // The digital IO pin number of the receiver data
+// static uint8_t vw_rx_pin = 11;
+// // The digital IO pin number of the transmitter data
+// static uint8_t vw_tx_pin = 12;
+
 #include <VirtualWire.h>
 byte message[VW_MAX_MESSAGE_LEN]; // a buffer to store the incoming messages
 byte messageLength = VW_MAX_MESSAGE_LEN; // the size of the message

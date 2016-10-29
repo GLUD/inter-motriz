@@ -1,6 +1,13 @@
 // Se instaló con:
 // platformio lib search VirtualWire
 // platformio lib install VirtualWire
+// // The digital IO pin number of the press to talk, enables the transmitter
+// hardware
+// static uint8_t vw_ptt_pin = 10;
+// // The digital IO pin number of the receiver data
+// static uint8_t vw_rx_pin = 11;
+// // The digital IO pin number of the transmitter data
+// static uint8_t vw_tx_pin = 12;
 #include <VirtualWire.h>
 
 char *estado = "0";
