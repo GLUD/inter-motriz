@@ -12,8 +12,8 @@ void setup() {
   Serial.begin(9600);
   Serial.println("El dispositivo esta listo.");
   // Initialize the IO and ISR
-  vw_setup(2000); // Bits per sec
-  vw_rx_start();  // Start the receiver
+  vw_setup(200); // Bits per sec
+  vw_rx_start(); // Start the receiver
 
   pinMode(actuador1, OUTPUT);
   digitalWrite(actuador1, LOW);
