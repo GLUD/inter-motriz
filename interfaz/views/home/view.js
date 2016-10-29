@@ -29,19 +29,13 @@ angular.module('myApp.home', ['ngRoute'])
             $scope.dispositivo = dispositivo
             var datos = ''
             if ($scope.dispositivo === 'television') {
-              datos = ($scope.estado == 'on')?'param1=on':'param1=off'
+              datos = ($scope.estado === 'on')?'param1=on':'param1=off'
             }
             if ($scope.dispositivo === 'bombillo') {
-              datos = ($scope.estado == 'on')?'param2=on':'param2=off'
+              datos = ($scope.estado === 'on')?'param2=on':'param2=off'
             }
-            $http.get("http://localhost:12345/?" + datos)
-                .then(function(response) {
-                    //First function handles success
-                    $scope.content = response.data;
-                }, function(response) {
-                    //Second function handles error
-                    $scope.content = "Something went wrong";
-                });
+            var ip = window.location.hostname
+            $http.get("http://" + ip + ":12345/?" + datos);
             $scope.primero = true
         }
     }

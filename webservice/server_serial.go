@@ -47,7 +47,7 @@ func conSerial(numero int, param1 string, param2 string) int {
 
 // hello world, the web server
 func HelloServer(w http.ResponseWriter, req *http.Request) {
-	io.WriteString(w, "")
+	io.WriteString(w, "bien")
 	//fmt.Println(req.RequestURI)
 	u, err := url.Parse(req.RequestURI)
 	if err != nil {

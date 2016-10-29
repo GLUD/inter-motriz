@@ -10,50 +10,58 @@
 // static uint8_t vw_tx_pin = 12;
 #include <VirtualWire.h>
 
-char *estado = "0";
+//char *estado = "0";
 char incomingByte = '0';        // for incoming serial data
-static char response[7] = "\0"; // static vs const?
-byte index = 0;
+static char response[] = "00"; //"\0"; //"\0"; // static vs const?
+//byte index = 0;
 
 void setup() {
-  Serial.begin(9600);
-  // Initialize the IO and ISR
-  vw_setup(200); // Bits per sec
-  Serial.println("El dispositivo esta listo.");
+        Serial.begin(9600);
+        // Initialize the IO and ISR
+        vw_setup(2000); // Bits per sec
+        Serial.println("El dispositivo esta listo.");
 }
 
 void loop() {
-  waitAndSend();
-  // cambiarEstado();
+        waitAndSend();
+        // cambiarEstado();
 }
 
 void waitAndSend() {
-  // send data only when you receive data:
-  if (Serial.available() > 0) {
-      incomingByte = Serial.read();
-      Serial.print("I received: ");
-      Serial.println(incomingByte);
-      send(incomingByte);
-    // // Se debe apagar dispositivo (Pin Salida Digital de Control?)
-    // delay(1000);
-  }
+        // send data only when you receive data:
+        if (Serial.available() > 0) {
+                incomingByte = Serial.read();
+                Serial.print("I received: ");
+                Serial.println(incomingByte);
+                response[0] = (char)incomingByte;
+                response[1] = (char)incomingByte;
+                //Serial.println(response);
+                //send((char *)response);
+                //char response[1] = incomingByte;
+                Serial.println(response);
+                send(response);
+                //esponse = { NULL };
+                //send(response);
+                // // Se debe apagar dispositivo (Pin Salida Digital de Control?)
+                // delay(1000);
+        }
 }
 
 void send(char *message) {
-  vw_send((uint8_t *)message, strlen(message));
-  vw_wait_tx(); // Wait until the whole message is gone
+        vw_send((uint8_t *)message, strlen(message));
+        vw_wait_tx(); // Wait until the whole message is gone
 }
 
-void cambiarEstado() {
-  // Se debe encender Dispositivo
-  if (estado == "0") {
-    estado = "1";
-  } else {
-    estado = "0";
-  }
-  // Serial.println(estado);
-  char dato[7] = "";
-  strcat(dato, "a=0&b=");
-  strcat(dato, estado);
-  send(dato);
-}
+// void cambiarEstado() {
+//         // Se debe encender Dispositivo
+//         if (estado == "0") {
+//                 estado = "1";
+//         } else {
+//                 estado = "0";
+//         }
+//         // Serial.println(estado);
+//         char dato[7] = "";
+//         strcat(dato, "a=0&b=");
+//         strcat(dato, estado);
+//         send(dato);
+// }

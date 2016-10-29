@@ -20,7 +20,7 @@ void setup() {
   Serial.begin(9600);
   Serial.println("El dispositivo esta listo.");
   // Initialize the IO and ISR
-  vw_setup(200); // Bits per sec
+  vw_setup(2000); // Bits per sec
   vw_rx_start(); // Start the receiver
 
   pinMode(actuador1, OUTPUT);
@@ -34,18 +34,18 @@ void loop() {
   if (vw_get_message(message, &messageLength)) { // Non-blocking
     Serial.print("Received: ");
     for (int i = 0; i < messageLength; i++) {
-      Serial.write(message[i]);
+      //Serial.write(message[i]);
       readString += (char)message[i];
     }
     Serial.println(readString);
 
-    if (readString == "0") {
+    if (readString == "00") {
       digitalWrite(actuador1, HIGH);
-    } else if (readString == "1") {
+    } else if (readString == "11") {
       digitalWrite(actuador1, LOW);
-    } else if (readString == "2") {
+    } else if (readString == "22") {
       digitalWrite(actuador2, HIGH);
-    } else if (readString == "3") {
+    } else if (readString == "33") {
       digitalWrite(actuador2, LOW);
     }
   }
