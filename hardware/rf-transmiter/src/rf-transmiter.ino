@@ -8,7 +8,7 @@ void setup() {
 }
 void loop() {
   // Se debe encender Dispositivo
-  send((char *)"param1=value1&param2=value2");
+  send((char *)"a=0&b=1");
   // Se debe apagar dispositivo (Pin Salida Digital de Control?)
   delay(1000);
 }
