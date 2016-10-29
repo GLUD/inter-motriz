@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="medium-7 large-6 columns">
+        <h1>Inter-Motriz </h1>
+    </div>
+</div>
+<div class="row column">
+    <hr>
+</div>
+<div class="row column">
+    <p align=center class="enunc1">Por favor, seleccione una de estas dos opciones: </p>
+</div>
+<h1>{{content}}</h1>
+<table id="contenedor1" ng-class="primero ? '' : 'ocultar'">
+    <tr>
+        <td align="right">
+            <strong>
+                <a ng-click="setEstado('on')">
+                  <img class="boton left on" alt="on">
+                  <br>
+                  <center> On : Encender! </center>
+                </a>
+              </strong>
+        </td>
+        <td>
+            <strong>
+              </strong>
+        </td>
+        <td align="left">
+            <strong>
+                <a ng-click="setEstado('off')">
+                  <img class="boton right off" alt="off">
+                  <br>
+                  <center> Off : Apagar!</center>
+                </a>
+              </strong>
+        </td>
+    </tr>
+</table>
+
+<table id="contenedor2" ng-class="primero ? 'ocultar' : ''">
+    <tr>
+        <td align="right">
+            <strong>
+                <a ng-click="setDispositivo('television')">
+                  <img class="boton left television" alt="on">
+                  <br>
+                  <center> Televisor! </center>
+                </a>
+              </strong>
+        </td>
+        <td>
+            <strong>
+              </strong>
+        </td>
+        <td align="left">
+            <strong>
+                <a ng-click="setDispositivo('bombillo')">
+                  <img class="boton right bombillo" alt="off">
+                  <br>
+                  <center> Bombillo! </center>
+                </a>
+              </strong>
+        </td>
+    </tr>
+</table>
+<footer>
+</footer>

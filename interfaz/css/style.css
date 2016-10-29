@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Rancho');
+p.enunc1 {
+    font-family: 'Rancho', cursive;
+    font-size: 170%;
+}
+
+h1 {
+    font-family: 'Rancho';
+    font-size: 270%;
+    color: blue;
+}
+
+.boton {
+  width: 294px;
+  height: 294px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.ocultar{
+  display: none;
+}
+
+.boton.left{
+
+}
+
+.boton.right{
+
+}
+
+.boton.on {
+  content: url('img/on.jpg');
+}
+
+.boton.off {
+  content: url('img/off.jpg');
+}
+
+.boton.television {
+  content: url('img/tel.png');
+}
+
+.boton.bombillo {
+  content: url('img/foco.png');
+}
