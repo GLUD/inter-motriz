@@ -30,16 +30,10 @@ void loop() {
 void waitAndSend() {
   // send data only when you receive data:
   if (Serial.available() > 0) {
-    incomingByte = Serial.read();
-    // Serial.println(incomingByte);
-    response[index] = incomingByte;
-    index++;
-    if (index > 6) {
+      incomingByte = Serial.read();
       Serial.print("I received: ");
-      Serial.println(response);
-      send(response);
-      index = 0;
-    }
+      Serial.println(incomingByte);
+      send(incomingByte);
     // // Se debe apagar dispositivo (Pin Salida Digital de Control?)
     // delay(1000);
   }

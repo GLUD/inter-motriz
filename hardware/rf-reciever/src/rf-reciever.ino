@@ -37,30 +37,15 @@ void loop() {
       Serial.write(message[i]);
       readString += (char)message[i];
     }
-    Serial.println();
-    // Serial.println(readString);
+    Serial.println(readString);
 
-    // Inicio
-    String param1 = "a";
-    readValueHTTP(param1);
-    Serial.println(param1);
-    // Fin
-
-    // Inicio
-    String param2 = "b";
-    readValueHTTP(param2);
-    Serial.println(param2);
-    // Fin
-
-    if (param1 == "1") {
+    if (readString == "0") {
       digitalWrite(actuador1, HIGH);
-    } else if (param1 == "0") {
+    } else if (readString == "1") {
       digitalWrite(actuador1, LOW);
-    }
-
-    if (param2 == "1") {
+    } else if (readString == "2") {
       digitalWrite(actuador2, HIGH);
-    } else if (param2 == "0") {
+    } else if (readString == "3") {
       digitalWrite(actuador2, LOW);
     }
   }
