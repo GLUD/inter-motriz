@@ -27,7 +27,14 @@ angular.module('myApp.home', ['ngRoute'])
         $scope.dispositivo = ''
         $scope.setDispositivo = function(dispositivo) {
             $scope.dispositivo = dispositivo
-            $http.get("http://localhost:12345/?param1=on&param2=off")
+            var datos = ''
+            if ($scope.dispositivo === 'television') {
+              datos = ($scope.estado == 'on')?'param1=on':'param1=off'
+            }
+            if ($scope.dispositivo === 'bombillo') {
+              datos = ($scope.estado == 'on')?'param2=on':'param2=off'
+            }
+            $http.get("http://localhost:12345/?" + datos)
                 .then(function(response) {
                     //First function handles success
                     $scope.content = response.data;
