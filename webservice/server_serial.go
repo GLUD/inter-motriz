@@ -21,20 +21,18 @@ func conSerial(numero int, param1 string, param2 string) int {
 		return 1
 	}
 
-  if (param1 == "on") {
-    param1 = "1"
-  } else {
-    param1 = "0"
-  }
+	var dato string = ""
+	if (param1 == "on") {
+		dato = "0"
+	} else if (param1 == "off") {
+		dato = "1"
+	} else if (param2 == "on") {
+		dato = "2"
+	} else { //if (param2 == "off") {
+		dato = "3"
+	}
 
-  if (param2 == "on") {
-    param2 = "1"
-  } else {
-    param2 = "0"
-  }
-
-  var dato string = "a=" + param1 + "&b=" + param2
-  fmt.Println(dato)
+	fmt.Println(dato)
 
 	_, err = s.Write([]byte(dato))
 
@@ -57,8 +55,14 @@ func HelloServer(w http.ResponseWriter, req *http.Request) {
 	}
 	q := u.Query()
 	fmt.Println(q)
-	param1 := q["param1"][0]
-	param2 := q["param2"][0]
+	var param1 string = "";
+	var param2 string = "";
+	if (q["param1"] != nil) {
+		param1 = q["param1"][0]
+	}
+	if (q["param2"] != nil) {
+		param2 = q["param2"][0]
+	}
 	fmt.Println(param1, param2)
 	var dev int = 0
 	var error int = -1
